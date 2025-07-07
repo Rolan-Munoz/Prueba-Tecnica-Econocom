@@ -1,0 +1,23 @@
+# Archivos del sistema
+.DS_Store
+*.swp
+._*
+
+# Backend (Java/Spring)
+**/target/
+**/.settings/
+**/.project
+**/.classpath
+**/.idea/
+*.iml
+**/*.log
+
+# Frontend (Node/Angular)
+**/node_modules/
+**/dist/
+**/.angular/cache
+
+# Maven Wrapper (opcional, si no quieres subirlo)
+!**/mvnw
+!**/mvnw.cmd
+!**/.mvn/wrapper/maven-wrapper.jar
