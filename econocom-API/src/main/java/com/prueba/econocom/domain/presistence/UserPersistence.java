@@ -7,7 +7,6 @@ import java.util.Optional;
 public interface UserPersistence {
     // Métodos esenciales para autenticación JWT
     Optional<User> findByEmail(String email);
-    Optional<User> findByToken(String token);
+    User save(User user);
 
-    void updateUserToken(User user);
 }

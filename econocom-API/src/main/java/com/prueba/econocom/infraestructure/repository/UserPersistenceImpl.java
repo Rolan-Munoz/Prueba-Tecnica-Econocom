@@ -23,12 +23,8 @@ public class UserPersistenceImpl implements UserPersistence {
     }
 
     @Override
-    public Optional<User> findByToken(String token) {
-        return userRepository.findByToken(token);
-    }
-    @Override
-    public void updateUserToken(User user) {
-        userRepository.save(user); // Usando el save() de JPA
+    public User save(User user) {
+        return userRepository.save(user);
     }
 
 

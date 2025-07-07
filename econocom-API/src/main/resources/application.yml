@@ -1,9 +1,7 @@
-
 server:
   port: 8080
   servlet:
-    context-path: /api
-
+    context-path:
 
 spring:
   datasource:
@@ -11,13 +9,16 @@ spring:
     driver-class-name: org.h2.Driver
     username: sa
     password: ""
+
   h2:
     console:
       enabled: true
       path: /h2-console
       settings:
-        web-allow-others: false
+        web-allow-others: true
+
   jpa:
+    defer-datasource-initialization: true
     database-platform: org.hibernate.dialect.H2Dialect
     show-sql: true
     hibernate:
@@ -26,11 +27,9 @@ spring:
       hibernate:
         format_sql: true
 
-
 jwt:
   secret: "ClaveSecretaParaTokenJWT!"
   expiration: 86400000
-
 
 cors:
   allowed-origins: "http://localhost:4200"

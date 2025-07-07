@@ -14,7 +14,7 @@ public class UserDTO implements Serializable
     private Long id;
     private String email;
     private String password; // Hash BCrypt
-    private String token; // JWT Token
+
 
     public UserDTO(String email, String password) {
         this.email = email;

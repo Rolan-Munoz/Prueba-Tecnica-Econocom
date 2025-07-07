@@ -21,9 +21,7 @@ public class User {
     private String email;
 
     @Column(nullable = false, length = 100)
-    private String password; // Hash BCrypt
+    private String password;
 
-    @Column(length = 500)
-    private String token;
 
 }
