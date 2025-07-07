@@ -1,0 +1,37 @@
+# Configuración básica del servidor
+server:
+  port: 8080
+  servlet:
+    context-path: /api  # Todos los endpoints empezarán con /api
+
+# Configuración de H2 Database (en memoria)
+spring:
+  datasource:
+    url: jdbc:h2:mem:authdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: ""
+  h2:
+    console:
+      enabled: true  # Habilita la consola web
+      path: /h2-console  # URL de acceso
+      settings:
+        web-allow-others: false  # Solo acceso local
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    show-sql: true  # Muestra SQL en consola (útil para debug)
+    hibernate:
+      ddl-auto: update  # Actualiza el esquema automáticamente
+    properties:
+      hibernate:
+        format_sql: true  # Formatea el SQL para mejor legibilidad
+
+# Configuración JWT
+jwt:
+  secret: "ClaveSecretaParaTokenJWT!"  # Cambiar en producción
+  expiration-ms: 86400000  # 24 horas en milisegundos
+
+# Configuración CORS para desarrollo
+cors:
+  allowed-origins: "http://localhost:4200"  # Permite conexión con Angular
+  allowed-methods: "GET, POST, PUT, DELETE, OPTIONS"
