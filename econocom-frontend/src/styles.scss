@@ -1,94 +1,27 @@
 // =============================================
-// 0. Angular Material Initialization
+// 0. Configuración inicial de Angular Material
 // =============================================
 @use '@angular/material' as mat;
 @include mat.core();
 
 // =============================================
-// 1. Settings (Variables y configuraciones)
-// =============================================
-@import "assets/scss/1-settings/_variables";
-
-
-// =============================================
-// 2. Tools (Mixins y funciones)
-// =============================================
-@import "assets/scss/3-tools/_aspect-ratio";
-@import "assets/scss/3-tools/_breakpoints";
-@import "assets/scss/3-tools/_ellipsis";
-@import "assets/scss/3-tools/_flexbox";
-@import "assets/scss/3-tools/_fluid-type";
-@import "assets/scss/3-tools/_font-face";
-@import "assets/scss/3-tools/_notouch-hover";
-@import "assets/scss/3-tools/_nth-child";
-@import "assets/scss/3-tools/_transition";
-
-
-@import "assets/scss/2-design-tokens/_typography";
-
-// =============================================
-// 3. Generic (Estilos de reset/normalize)
-// =============================================
 @import "assets/scss/4-generic/_normalize";
 @import "assets/scss/4-generic/_reset";
+/*********************************************/
 
-// =============================================
-// 4. Elements (Estilos base para elementos HTML)
-// =============================================
-@import "assets/scss/5-elements/_buttons";
-
-// =============================================
-// 5. Skeleton (Estructuras de layout)
-// =============================================
-@import "assets/scss/6-skeleton/_layouts";
-
-// =============================================
-// 6. Components (Componentes específicos)
-// =============================================
-@import "assets/scss/7-components/_forms";
-
-// =============================================
-// 7. Utilities (Clases utilitarias)
-// =============================================
-@import "assets/scss/8-utilities/_modifiers";
-@import "assets/scss/8-utilities/_states";
-
-// =============================================
-// 8. Angular Material Theme (usando tus variables)
-// =============================================
-$primary-palette: mat.define-palette($my-primary);
-$accent-palette: mat.define-palette($my-secondary);
-$warn-palette: mat.define-palette(mat.$red-palette);
-
-$custom-theme: mat.define-light-theme((
-  color: (
-    primary: $primary-palette,
-    accent: $accent-palette,
-    warn: $warn-palette,
-  ),
-  typography: mat.define-typography-config(
-    $font-family: $font-stack
-  )
-));
-
-@include mat.all-component-themes($custom-theme);
-
-// =============================================
-// 9. Material Overrides (Personalizaciones)
-// =============================================
-@import "assets/scss/8-utilities/_material-overrides";
-
-// =============================================
-// 10. Global Styles
-// =============================================
-html, body {
-  height: 100%;
-  margin: 0;
-  font-family: $font-stack;
-  background-color: $neutral-95;
-}
-
-// Fuentes definidas con tu font-face
-@include font-face('Lato', 'assets/fonts/Lato/Lato-Regular', 400);
-@include font-face('Lato', 'assets/fonts/Lato/Lato-Bold', 700);
-@include font-face('Lato', 'assets/fonts/Lato/Lato-Black', 900);
+//Add anything you need to use globally here
+//example: @import "assets/scss/4-generic/_typography";
+@import "assets/scss/1-settings/_variables";
+@import "assets/scss/3-tools/breakpoints";
+@import "assets/scss/3-tools/notouch-hover";
+@import "assets/scss/3-tools/fluid-type";
+@import "assets/scss/3-tools/nth-child";
+@import "assets/scss/3-tools/transition";
+@import "assets/scss/2-design-tokens/typography";
+@import "assets/scss/5-elements/buttons";
+@import "assets/scss/6-skeleton/layouts";
+@import "assets/scss/7-components/forms";
+@import "assets/scss/8-utilities/modifiers";
+@import "assets/scss/8-utilities/states";
+@import "assets/scss/material-overrides";
+@import "assets/scss/custom-material-theme.scss";
