@@ -1,5 +1,5 @@
 <div class="login-container flex-rows">
-    <!-- Columna izquierda (imagen) -->
+    <!-- Columna izquierda -->
     <div class="image-column">
         <img 
             src="../../../assets/images/login.svg" 
@@ -8,7 +8,7 @@
         >
     </div>
 
-    <!-- Columna derecha (formulario) -->
+    <!-- Columna derecha -->
     <div class="form-column">
         <div class="form-wrapper flex-columns">
             <!-- Logo -->
@@ -18,9 +18,61 @@
             
             <!-- Formulario -->
             <div class="login-form">
-            <h2>Iniciar sesión en tu cuenta</h2>
-            <!-- Campos irán aquí -->
-            </div>
+                
+                <h2>Iniciar sesión con tu cuenta</h2>
+                <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                    <mat-form-field appearance="outline" class="form-field">
+                        <mat-label>Correo electrónico</mat-label>
+                        <input matInput formControlName="email" type="email" required>
+                        <mat-icon matSuffix>mail</mat-icon>
+                        <mat-error *ngIf="loginForm.get('email')?.hasError('required')">
+                            Campo obligatorio
+                        </mat-error>
+                        <mat-error *ngIf="loginForm.get('email')?.hasError('email')">
+                            Introduce un email válido
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" class="form-field">
+                        <mat-label>Contraseña</mat-label>
+                        <input matInput formControlName="password" [type]="hidePassword ? 'password' : 'text'" required>
+                        <button type="button" mat-icon-button matSuffix (click)="hidePassword = !hidePassword">
+                            <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                        <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
+                            Campo obligatorio
+                        </mat-error>
+                    </mat-form-field>
+
+                    <button mat-flat-button color="primary" class="submit-button" type="submit" [disabled]="loginForm.invalid">
+                        ENTRAR
+                    </button>
+
+                    <button mat-flat-button color="secondary" class="sso-button" type="button">
+                        <mat-icon>security</mat-icon>
+                        INICIAR SESIÓN CON SSO
+                    </button>
+
+                    <div class="register-link">
+                        <span>¿No tienes cuenta?</span>
+                        <a href="#" class="register-text">Registrarse</a>
+                    </div>
+                </form>
+
+                <!-- Selector de idioma -->
+                <div class="language-footer">
+                    <mat-icon class="language-icon">language</mat-icon>
+                    <mat-form-field appearance="fill" class="language-select">
+                        <mat-select [(value)]="selectedLanguage">
+                        <mat-option value="ES">ES</mat-option>
+                        <mat-option value="EN">EN</mat-option>
+                        <mat-option value="PT">PT</mat-option>
+                        <mat-option value="FR">FR</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    
+                    <img src="../../../assets/images/logos/Econocom.svg" alt="Secondary Logo" class="secondary-logo">
+                    </div>
+                </div>
         </div>
     </div>
 </div>

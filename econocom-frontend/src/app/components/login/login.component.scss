@@ -1,99 +1,210 @@
-@import '../../../assets/scss/3-tools/breakpoints';
 @import '../../../assets/scss/1-settings/variables';
+@import '../../../assets/scss/3-tools/breakpoints';
+@import '../../../assets/scss/3-tools/notouch-hover';
+@import '../../../assets/scss/5-elements/buttons';
 @import '../../../assets/scss/6-skeleton/layouts';
 
+
 .login-container {
-    @extend .flex-rows;
-    height: 100vh;
-    width: 100vw;
-    overflow: hidden;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+
+  @include for-size(md-down) {
+    flex-direction: column;
+  }
 }
 
 .image-column {
-    flex: 2;
-    position: relative;
-    background-color: $neutral-95; // Fondo gris claro 
-    padding: $spacing-xl; // Margen interno grande
+  flex: 2;
+  position: relative;
+  background-color: $neutral-95;
+  padding: $spacing-xl;
 
-    .login-image {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%); // Centrado perfecto
-        max-width: calc(100% - #{$spacing-xl * 2}); 
-        max-height: calc(100% - #{$spacing-xl * 2});
-        width: auto;
-        height: auto;
-        object-fit: contain; // Mantiene relación de aspecto sin recortar
-    
-    // Para imágenes muy verticales u horizontales
+  .login-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: calc(100% - #{$spacing-xl * 2});
+    max-height: calc(100% - #{$spacing-xl * 2});
+    width: auto;
+    height: auto;
+    object-fit: contain;
+
     @media (orientation: portrait) {
-        width: auto;
-        height: 80%;
+      width: auto;
+      height: 80%;
     }
     @media (orientation: landscape) {
-        width: 80%;
-        height: auto;
+      width: 80%;
+      height: auto;
     }
-    }
+  }
 }
 
 .form-column {
-    flex: 1;
-    @extend .flex-columns;
-    justify-content: center;
-    align-items: center;
-    padding: $spacing-xl; // Más espacio interno
-    background: $white;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  padding: $spacing-xl;
+  background: $white;
 
-    .form-wrapper {
+  .form-wrapper {
     width: 100%;
     max-width: 400px;
     padding: $spacing-m;
     
     .logo-container {
-        text-align: center;
-        margin-bottom: $spacing-xl; // Más espacio bajo el logo
-        
-        .logo {
-            max-width: 180px; // Logo un poco más grande
-            height: auto;
-        }
+      text-align: center;
+      margin-bottom: $spacing-xl;
+      
+      .logo {
+        max-width: 180px;
+        height: auto;
+      }
     }
     
     .login-form {
-        @extend .flex-columns;
-        gap: $spacing-l; // Más espacio entre elementos
-        
-        h2 {
-            text-align: center;
-            margin-bottom: $spacing-l;
-            font-size: $font-m; // variable de tamaño de fuente
-        }
-        }
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      gap: $spacing-l;
+      
+      h2 {
+        text-align: center;
+        margin-bottom: $spacing-l;
+        font-size: $font-m;
+      }
     }
+  }
 }
 
-/* Responsive - Cambia a columna en móviles */
+/* Estilos responsive sin usar @extend */
 @include for-size(md-down) {
-    .login-container {
-        flex-direction: column;
+  .login-container {
+    flex-direction: column;
     
     .image-column {
-        flex: none;
-        height: 40vh;
-        padding: $spacing-m;
-        
-        .login-image {
-            max-width: calc(100% - #{$spacing-m * 2});
-            max-height: calc(100% - #{$spacing-m * 2});
-        }
+      flex: none;
+      height: 40vh;
+      padding: $spacing-m;
+      
+      .login-image {
+        max-width: calc(100% - #{$spacing-m * 2});
+        max-height: calc(100% - #{$spacing-m * 2});
+      }
     }
     
     .form-column {
-        flex: none;
-        height: 60vh;
-        padding: $spacing-l;
-        }
+      flex: none;
+      height: 60vh;
+      padding: $spacing-l;
     }
+  }
+}
+
+/* Estilos del formulario */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: $spacing-xl;
+  width: 100%;
+
+  h2 {
+    text-align: center;
+    color: $neutral-20;
+    font-size: $font-l;
+    font-weight: 500;
+    margin: 0;
+  }
+
+  .form-field {
+    width: 100%;
+    margin-bottom: $spacing-m;
+    
+    mat-icon {
+      color: $neutral-50;
+    }
+  }
+
+  .submit-button {
+    width: 100%;
+    height: 48px;
+    margin-top: $spacing-m;
+    font-weight: bold;
+    letter-spacing: 1px;
+    
+    @include notouch-hover {
+      @include set-bg-lighten($primary, $white, 10%);
+    }
+  }
+
+  .sso-button {
+    width: 100%;
+    height: 48px;
+    margin-top: $spacing-s;
+    font-weight: bold;
+    letter-spacing: 1px;
+    
+    mat-icon {
+      margin-right: $spacing-xs;
+    }
+    
+    @include notouch-hover {
+      @include set-bg-lighten($secondary, $white, 5%);
+    }
+  }
+
+  .register-link {
+    text-align: center;
+    margin-top: $spacing-xl;
+    color: $neutral-40;
+    
+    .register-text {
+      color: $primary;
+      margin-left: $spacing-xs;
+      text-decoration: none;
+      font-weight: bold;
+      
+      @include notouch-hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .language-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: $spacing-xxl;
+    padding-top: $spacing-m;
+    border-top: 1px solid $neutral-90;
+
+    .language-icon {
+      color: $neutral-50;
+      margin-right: $spacing-s;
+    }
+
+    .language-select {
+      flex-grow: 1;
+      max-width: 100px;
+      
+      .mat-form-field-wrapper {
+        padding-bottom: 0;
+      }
+    }
+
+    .secondary-logo {
+      height: 24px;
+      margin-left: auto;
+    }
+  }
 }
