@@ -1,0 +1,99 @@
+@import '../../../assets/scss/3-tools/breakpoints';
+@import '../../../assets/scss/1-settings/variables';
+@import '../../../assets/scss/6-skeleton/layouts';
+
+.login-container {
+    @extend .flex-rows;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+.image-column {
+    flex: 2;
+    position: relative;
+    background-color: $neutral-95; // Fondo gris claro 
+    padding: $spacing-xl; // Margen interno grande
+
+    .login-image {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); // Centrado perfecto
+        max-width: calc(100% - #{$spacing-xl * 2}); 
+        max-height: calc(100% - #{$spacing-xl * 2});
+        width: auto;
+        height: auto;
+        object-fit: contain; // Mantiene relación de aspecto sin recortar
+    
+    // Para imágenes muy verticales u horizontales
+    @media (orientation: portrait) {
+        width: auto;
+        height: 80%;
+    }
+    @media (orientation: landscape) {
+        width: 80%;
+        height: auto;
+    }
+    }
+}
+
+.form-column {
+    flex: 1;
+    @extend .flex-columns;
+    justify-content: center;
+    align-items: center;
+    padding: $spacing-xl; // Más espacio interno
+    background: $white;
+
+    .form-wrapper {
+    width: 100%;
+    max-width: 400px;
+    padding: $spacing-m;
+    
+    .logo-container {
+        text-align: center;
+        margin-bottom: $spacing-xl; // Más espacio bajo el logo
+        
+        .logo {
+            max-width: 180px; // Logo un poco más grande
+            height: auto;
+        }
+    }
+    
+    .login-form {
+        @extend .flex-columns;
+        gap: $spacing-l; // Más espacio entre elementos
+        
+        h2 {
+            text-align: center;
+            margin-bottom: $spacing-l;
+            font-size: $font-m; // variable de tamaño de fuente
+        }
+        }
+    }
+}
+
+/* Responsive - Cambia a columna en móviles */
+@include for-size(md-down) {
+    .login-container {
+        flex-direction: column;
+    
+    .image-column {
+        flex: none;
+        height: 40vh;
+        padding: $spacing-m;
+        
+        .login-image {
+            max-width: calc(100% - #{$spacing-m * 2});
+            max-height: calc(100% - #{$spacing-m * 2});
+        }
+    }
+    
+    .form-column {
+        flex: none;
+        height: 60vh;
+        padding: $spacing-l;
+        }
+    }
+}
