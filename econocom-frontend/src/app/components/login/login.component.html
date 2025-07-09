@@ -1,11 +1,9 @@
 <div class="login-container flex-rows">
     <!-- Columna izquierda -->
     <div class="image-column">
-        <img 
-            src="../../../assets/images/login.svg" 
+        <img src="../../../assets/images/login.svg" 
             alt="Background login"
-            class="login-image"
-        >
+            class="login-image">
     </div>
 
     <!-- Columna derecha -->
@@ -13,14 +11,14 @@
         <div class="form-wrapper flex-columns">
             <!-- Logo -->
             <div class="logo-container">
-            <img src="../../../assets/images/logos/Logo-RD.svg" alt="Logo" class="logo">
+                <img src="../../../assets/images/logos/Logo-RD.svg" alt="Logo" class="logo">
             </div>
             
-            <!-- Formulario -->
-            <div class="login-form">
-                
+            <!-- Vista de Login -->
+            <div *ngIf="!isLoggedIn" class="login-form">
                 <h2>Iniciar sesión con tu cuenta</h2>
                 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                    <!-- Campo Email -->
                     <mat-form-field appearance="outline" class="form-field">
                         <mat-label>Correo electrónico</mat-label>
                         <input matInput formControlName="email" type="email" required>
@@ -32,10 +30,14 @@
                             Introduce un email válido
                         </mat-error>
                     </mat-form-field>
+                    
+                    <!-- Campo Contraseña -->
                     <mat-form-field appearance="outline" class="form-field">
                         <mat-label>Contraseña</mat-label>
-                        <input matInput formControlName="password" [type]="hidePassword ? 'password' : 'text'" required>
-                        <button type="button" mat-icon-button matSuffix (click)="hidePassword = !hidePassword">
+                        <input matInput formControlName="password" 
+                            [type]="hidePassword ? 'password' : 'text'" required>
+                        <button type="button" mat-icon-button matSuffix 
+                                (click)="hidePassword = !hidePassword">
                             <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
                         </button>
                         <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
@@ -43,8 +45,10 @@
                         </mat-error>
                     </mat-form-field>
 
-                    <button mat-flat-button color="primary" class="submit-button" type="submit" [disabled]="loginForm.invalid">
-                        ENTRAR
+                    <button mat-flat-button color="primary" class="submit-button" 
+                            type="submit" [disabled]="loginForm.invalid || isLoading">
+                        <span *ngIf="!isLoading">ENTRAR</span>
+                        <mat-spinner *ngIf="isLoading" diameter="20" class="spinner"></mat-spinner>
                     </button>
 
                     <button mat-flat-button color="secondary" class="sso-button" type="button">
@@ -57,22 +61,32 @@
                         <a href="#" class="register-text">Registrarse</a>
                     </div>
                 </form>
-
-                <!-- Selector de idioma -->
-                <div class="language-footer">
-                    <mat-icon class="language-icon">language</mat-icon>
+            </div>
+            
+            <!-- Vista de Bienvenida -->
+            <div *ngIf="isLoggedIn" class="welcome-message">
+                <h2>¡Bienvenido!</h2>
+                <p class="user-email">{{ userEmail }}</p>
+                <mat-icon class="success-icon">check_circle</mat-icon>
+                <p class="success-text">Has iniciado sesión correctamente</p>
+                <button mat-flat-button color="primary" (click)="logout()">
+                    Cerrar sesión
+                </button>
+            </div>
+        </div>
+        <div class="language-footer">
+            <div class="footer-content">
+                <mat-icon class="language-icon">language</mat-icon>
                     <mat-form-field appearance="fill" class="language-select">
-                        <mat-select [(value)]="selectedLanguage">
+                        <mat-select [(value)]="selectedLanguage" panelClass="language-select-panel">
                         <mat-option value="ES">ES</mat-option>
                         <mat-option value="EN">EN</mat-option>
                         <mat-option value="PT">PT</mat-option>
                         <mat-option value="FR">FR</mat-option>
                         </mat-select>
                     </mat-form-field>
-                    
-                    <img src="../../../assets/images/logos/Econocom.svg" alt="Secondary Logo" class="secondary-logo">
-                    </div>
-                </div>
+                <img src="../../../assets/images/logos/Econocom.svg" alt="Secondary Logo" class="secondary-logo">
+            </div>
         </div>
     </div>
 </div>

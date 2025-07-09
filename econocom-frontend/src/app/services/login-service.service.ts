@@ -17,7 +17,7 @@ interface AuthResponseDTO{
 })
 export class LoginServiceService {
 
-  private baseUrl: string = 'api/auth';
+  private baseUrl: string = 'http://localhost:8080/api/auth';
 
   constructor(private http: HttpClient) { }
 

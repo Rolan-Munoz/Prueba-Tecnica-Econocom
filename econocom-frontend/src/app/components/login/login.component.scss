@@ -47,13 +47,15 @@
 }
 
 .form-column {
+  position: relative; 
+  padding-bottom: 80px;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
   flex: 1;
   justify-content: center;
   align-items: center;
-  padding: $spacing-xl;
+  padding: $spacing-l;
   background: $white;
 
   .form-wrapper {
@@ -86,7 +88,7 @@
   }
 }
 
-/* Estilos responsive sin usar @extend */
+
 @include for-size(md-down) {
   .login-container {
     flex-direction: column;
@@ -180,31 +182,107 @@
     }
   }
 
-  .language-footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: $spacing-xxl;
-    padding-top: $spacing-m;
-    border-top: 1px solid $neutral-90;
-
-    .language-icon {
-      color: $neutral-50;
-      margin-right: $spacing-s;
-    }
-
-    .language-select {
-      flex-grow: 1;
-      max-width: 100px;
+  
+    
+    .language-footer {
+      position: absolute;
+      bottom: 20px;
+      left: 0;
+      right: 0;
+      padding: 0 24px;
       
-      .mat-form-field-wrapper {
-        padding-bottom: 0;
+      .footer-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: row;
+        width: 100%;
+        height: 100vh;
+        margin: 0 auto;
+        flex-wrap: nowrap; 
+        
+        .language-icon {
+          color: $neutral-50;
+          font-size: 20px;
+          width: 20px;
+          height: 20px;
+          margin-right: 8px;
+          flex-shrink: 0; 
+        }
+        
+        .language-select {
+          flex: 1 1 auto;
+          margin: 0 8px;
+          
+          .mat-form-field-wrapper {
+            padding-bottom: 0;
+          }
+          
+          .mat-form-field-infix {
+            padding: 0.5em 0;
+            border-top: 0;
+            width: auto;
+          }
+          
+          .mat-select-value {
+            font-size: 14px;
+          }
+        }
+        
+        .secondary-logo {
+          height: 20px;
+          width: auto;
+          margin-left: 8px;
+          flex-shrink: 0; // Evita que se encoja
+        }
       }
     }
-
-    .secondary-logo {
-      height: 24px;
-      margin-left: auto;
+  
+  
+  .language-select-panel {
+    .mat-option {
+      font-size: 14px;
+      line-height: 32px;
+      height: 32px;
     }
   }
+
+  /* Estilos para la vista de bienvenida */
+.welcome-message {
+  text-align: center;
+  padding: 20px;
+
+  h2 {
+    color: $primary;
+    margin-bottom: $spacing-m;
+  }
+
+  .user-email {
+    font-size: 18px;
+    font-weight: 500;
+    color: $neutral-30;
+    margin-bottom: $spacing-xl;
+  }
+
+  .success-icon {
+    font-size: 60px;
+    width: 60px;
+    height: 60px;
+    color: $success;
+    margin-bottom: $spacing-m;
+  }
+
+  .success-text {
+    color: $neutral-40;
+    font-size: 16px;
+  }
+}
+
+/* Spinner para el botón */
+mat-spinner {
+  display: inline-block;
+  ::ng-deep circle {
+    stroke: white;
+  }
+}
 }
