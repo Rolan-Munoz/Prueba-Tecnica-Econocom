@@ -1,13 +1,15 @@
+// Clase de filtro para manejar la autenticación JWT
+// Esta clase extiende OncePerRequestFilter para interceptar las solicitudes HTTP
+// EL objetivo de esta clase y su método doFilterInternal es verificar si hay un token JWT en la solicitud,
+// validarlos y establecer el contexto de seguridad de Spring Security
+
 package com.prueba.econocom.config;
 
-import io.jsonwebtoken.ExpiredJwtException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.web.filter.OncePerRequestFilter;
-
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;

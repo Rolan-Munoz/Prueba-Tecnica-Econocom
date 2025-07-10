@@ -1,3 +1,7 @@
+// Clase para manejar la autenticación de usuarios en Spring Security
+// Esta clase implementa la interfaz UserDetailsService de Spring Security
+// EL objetivo de la misma es cargar los detalles del usuario por su email.
+
 package com.prueba.econocom.config;
 
 import com.prueba.econocom.domain.entity.User;
@@ -23,7 +27,7 @@ public class CustomUserDetailsService implements UserDetailsService {
         return org.springframework.security.core.userdetails.User
                 .withUsername(user.getEmail())
                 .password(user.getPassword())
-                .authorities("USER") // Autoridad simple (sin roles complejos)
+                .authorities("USER")
                 .accountExpired(false)
                 .accountLocked(false)
                 .credentialsExpired(false)

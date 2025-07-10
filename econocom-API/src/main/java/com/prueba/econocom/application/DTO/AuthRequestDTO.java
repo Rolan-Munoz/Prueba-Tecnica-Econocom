@@ -1,6 +1,10 @@
+// DTO de autenticación
+// Este DTO es utilizado para recibir las credenciales de autenticación del usuario, de esta manera nos prevenimos
+// de diferentes problemas de seguridad al no mostrar directamente nuestra entidad User
+
 package com.prueba.econocom.application.DTO;
 
-import lombok.AllArgsConstructor;
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

@@ -1,3 +1,6 @@
+// Data Inizializer.java
+// Esta clase se ejecuta al iniciar la aplicación y crea dos usuarios de prueba que sirve para testear la autenticación JWT.
+// Funciona comprobandop en primer lugar la existencia de dichos registros y en caso de no existir los crea con un password encriptado.
 package com.prueba.econocom.config;
 
 import com.prueba.econocom.domain.entity.User;

@@ -1,3 +1,7 @@
+// Clase de entidad de USER
+// Se usa una serie de anotaciones de lombok para simplificar el código, asi como anotaciones específicas para la
+// creación de la tabla en la base de datos
+
 package com.prueba.econocom.domain.entity;
 
 import lombok.Getter;

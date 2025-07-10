@@ -1,3 +1,8 @@
+// Clase de utilidad para manejar JWT
+// En esta clase se generan, validan y extrae la información incluida en los tokens JWT.
+// En esta clase usamos las variables de entorno que están definidas en el archivo de application.yml
+// como son secret y expiration.
+
 package com.prueba.econocom.config;
 
 import io.jsonwebtoken.Jwts;
@@ -5,7 +10,6 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
-
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
