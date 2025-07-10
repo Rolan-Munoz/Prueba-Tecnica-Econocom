@@ -1,27 +1,15 @@
-# EconocomFrontend
+# PRUEBA TÉCNICA PARA ECONOCOM;
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.16.
 
-## Development server
+# Este proyecto esta asociado a la prueba tecnica de Econocom para la posicion de desarrollador fullstack
+# El objetivo del proyecto es crear un frontend con un componente login que consuma nuestra API creada con spring boot
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
+# Este proyecto se ha realizado con la version de Angular 16.2.16 y Amngular material 16.2.14, y el proyecto tiene como objetivo crear
+# la funcionalidad necesaria para para autenticar a un usuario a traves de su email y contraseña. Ademas de aplicar correctamente los estilos y estructura propuestos, usando una libreria de estilos facilitada para ello.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+# El proyecto consta de un servicio que usa el modulo HttpCliente para hacer las llamadas a los endpoints propuestos en la API, asi como el componente login necesario para usar dicho servico y renderizar las vistas apropaidas.
 
-## Build
+# El componente login usa a su vez FormBuilder para la creacion y validacion del formulario y los datos ingresados, asi como una serie de mensajes informativos para el usuario en caso de credenciales incorrectas o correctas, y posibles problemas con la peticion al endpoint.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.

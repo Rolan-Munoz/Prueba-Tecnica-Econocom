@@ -1,3 +1,11 @@
+// Servicio de login
+// En este servicio manejamos el login, logout y validación de token a traves del modulo HttpClient de Angular.
+// A traves de este servicio llamamos a los diferentes endpoints del backend para autenticar al usuario y manejar el token de autenticación.
+// Tambien se ha visto conveniente crear algunos metodos para manejar el token en el localStorage del navegador, aunque esta no es una buena practica
+// en entornos de produccion.
+// Por ultimo se ha creado el manejador de errores a traves del metodo handleLoginError, el cual maneja los errores que puedan ocurrir al hacer la peticion al backend
+// o si  las credenciales son incorrectas.
+// Este servicio es inyectable y se puede usar en cualquier componente de la aplicacion.
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, map, Observable, throwError } from 'rxjs';

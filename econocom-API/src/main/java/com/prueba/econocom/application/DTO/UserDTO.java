@@ -1,3 +1,7 @@
+// DTO de usuario
+// Este DTO es utilizado para representar un usuario en la aplicación, incluyendo su ID, correo electrónico y contraseña.
+// Este DTO es utilizado para prevenir problemas de seguridad al no exponer directamente la entidad User.
+
 package com.prueba.econocom.application.DTO;
 
 import lombok.AllArgsConstructor;
@@ -13,7 +17,7 @@ public class UserDTO implements Serializable
 {
     private Long id;
     private String email;
-    private String password; // Hash BCrypt
+    private String password;
 
 
     public UserDTO(String email, String password) {

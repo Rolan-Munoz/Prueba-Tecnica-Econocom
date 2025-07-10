@@ -1,3 +1,8 @@
+// Controlador para manejar la autenticación de usuarios
+// Esta clase expone los endpoints necesarios para el inicio de sesión, validación de token y cierre de sesión.
+// además maneja los errores de autenticación y proporciona respuestas adecuadas al cliente.
+// Hace uso de la interfaz AuthService.
+
 package com.prueba.econocom.infraestructure.rest;
 
 import com.prueba.econocom.application.DTO.AuthRequestDTO;

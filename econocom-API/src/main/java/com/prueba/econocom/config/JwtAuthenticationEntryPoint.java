@@ -1,3 +1,8 @@
+// Clase para manejar la autenticación de usuarios y posicionar la respuesta de error en caso
+// de token inválido o
+// Esta clase implementa la interfaz AuthenticationEntryPoint de Spring Security y actúa como punto de
+// entrada para manejar posibles excepciones
+
 package com.prueba.econocom.config;
 
 import org.springframework.security.core.AuthenticationException;
@@ -15,7 +20,6 @@ public class JwtAuthenticationEntryPoint implements AuthenticationEntryPoint {
     public void commence(HttpServletRequest request,
                          HttpServletResponse response,
                          AuthenticationException authException) throws IOException {
-        // Personaliza el mensaje de error
         response.setContentType("application/json");
         response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
         response.getWriter().write(

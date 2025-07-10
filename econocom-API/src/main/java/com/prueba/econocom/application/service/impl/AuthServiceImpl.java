@@ -1,3 +1,7 @@
+// Implementación del servicio de autenticación
+// Esta clase implementa la interfaz AuthService y proporciona la lógica para autenticar a un usuario, validar un token y cerrar sesión.
+// En esta clase se usan varias clases del paquete de configuración, como JwtTokenUtil y CustomUserDetailsService,
+// para manejar la generación y validación de tokens JWT. Asi como el PasswordEncoder para verificar las contraseñas de los usuarios.
 package com.prueba.econocom.application.service.impl;
 
 import com.prueba.econocom.application.DTO.AuthRequestDTO;

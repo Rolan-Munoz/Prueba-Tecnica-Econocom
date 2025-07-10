@@ -1,3 +1,7 @@
+// Clase de implementación de la interfaz UserPersistence
+// Esta clase implementa en los métodos definidos en la interfaz UserPersistence, además hace uso de
+// UserRepository, que es el repositorio de Spring Data JPA para la entidad User.
+
 package com.prueba.econocom.infraestructure.repository;
 
 import com.prueba.econocom.domain.entity.User;

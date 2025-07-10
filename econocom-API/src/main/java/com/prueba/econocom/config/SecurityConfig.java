@@ -1,3 +1,8 @@
+// Clase de configuración de seguridad para la aplicación Spring Boot
+// Esta clase extiende WebSecurityConfigurerAdapter y configura la seguridad de la aplicación, incluyendo CORS, autenticación y autorización.
+// Clase principal para el manejo de las configuraciones de seguridad y para crear los beans
+// necesarios para ella, como el AuthenticationManager, PasswordEncoder y CORS configuration.
+
 package com.prueba.econocom.config;
 
 import org.springframework.context.annotation.Bean;
@@ -9,7 +14,6 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
